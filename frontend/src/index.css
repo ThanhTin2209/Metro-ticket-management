@@ -1,0 +1,99 @@
+@import "tailwindcss";
+
+:root {
+  --primary: #3b82f6;
+  --secondary: #64748b;
+  --bg: #f8fafc;
+  --text: #0f172a;
+  --card: #ffffff;
+  --card-hover: #f1f5f9;
+  --border: #f1f5f9;
+  --sidebar: #ffffff;
+  --slate-50: #f8fafc;
+  --slate-100: #f1f5f9;
+  --slate-200: #e2e8f0;
+  --slate-800: #1e293b;
+  --slate-900: #0f172a;
+}
+
+.dark {
+  --bg: #0b0f1a;
+  --text: #f8fafc;
+  --card: #151b2d;
+  --card-hover: #1e293b;
+  --border: #1e293b;
+  --sidebar: #0f172a;
+  --slate-50: #0f172a;
+  --slate-100: #1e293b;
+  --slate-200: #334155;
+  --slate-800: #f1f5f9;
+  --slate-900: #f8fafc;
+}
+
+* {
+  transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+}
+
+body {
+  margin: 0;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: var(--bg);
+  color: var(--text);
+}
+
+.premium-card {
+  @apply rounded-xl shadow-lg border overflow-hidden transition-all duration-300;
+  background-color: var(--card);
+  border-color: var(--border);
+}
+
+.premium-card:hover {
+  @apply shadow-xl;
+  background-color: var(--card-hover);
+}
+
+.bg-white { background-color: var(--card) !important; }
+.bg-slate-50 { background-color: var(--slate-50) !important; }
+.bg-slate-100 { background-color: var(--slate-100) !important; }
+.bg-slate-900 { background-color: var(--slate-800) !important; }
+.text-slate-900 { color: var(--slate-900) !important; }
+.text-slate-800 { color: var(--slate-800) !important; }
+.text-slate-500 { color: var(--secondary) !important; }
+.border-slate-100 { border-color: var(--border) !important; }
+
+.btn-primary {
+  @apply bg-blue-600 text-white px-4 py-2 rounded-lg font-medium transition-colors hover:bg-blue-700 active:transform active:scale-95;
+}
+
+@keyframes fade-in {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-in {
+  animation: fade-in 0.5s ease-out forwards;
+}
+
+@keyframes pop-in {
+  0% { transform: scale(0.9); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+.animate-pop-in {
+  animation: pop-in 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-5px); }
+  75% { transform: translateX(5px); }
+}
+
+.animate-shake {
+  animation: shake 0.2s ease-in-out infinite;
+}
+

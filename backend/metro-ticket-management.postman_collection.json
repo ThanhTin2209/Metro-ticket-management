@@ -1,0 +1,371 @@
+{
+  "info": {
+    "_postman_id": "d9a51c23-e2f9-48d9-9139-809c24b753ca",
+    "name": "BaiTap4,5",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "43641149",
+    "_collection_link": "https://go.postman.co/collection/43641149-d9a51c23-e2f9-48d9-9139-809c24b753ca?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "Phần A - Auth cơ bản",
+      "item": [
+        {
+          "name": "register",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"name\": \"Tin Thanh\",\r\n  \"email\": \"phanthanhtinanthanhtin22092004@gmail.com\",\r\n  \"password\": \"123456\"\r\n}\r\n",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:3000/api/auth/register",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "api",
+                "auth",
+                "register"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "login",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"email\": \"phanthanhtin95@gmail.com\",\r\n  \"password\": \"123456\"\r\n}\r\n",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:3000/api/auth/login",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "api",
+                "auth",
+                "login"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "logout",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"refreshToken\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2OWIyNmM0YmU2YjhhODg5YzQyMTE4OGMiLCJyb2xlIjoicGFzc2VuZ2VyIiwiaWF0IjoxNzczMzIyMTc2LCJleHAiOjE3NzMzMjMwNzZ9.athzv3E13fVdy8jOzMXYWRnUPcix00DyLm6f1KdDlEc\"\r\n}\r\n",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:3000/api/auth/logout",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "api",
+                "auth",
+                "logout"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "refresh-token",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"refreshToken\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2OWIyNmM0YmU2YjhhODg5YzQyMTE4OGMiLCJyb2xlIjoicGFzc2VuZ2VyIiwiaWF0IjoxNzczMzIyMTE5LCJleHAiOjE3NzM5MjY5MTksImp0aSI6IjM1MmE5ZGIzLTUyNjYtNDBkNi1hMWFlLWJiM2U4OGZmOTU5MyJ9.7HKk7uZbnwdMKcll6pqtHgcPlZjkCrrctlvfc-fj9-U\"\r\n}\r\n",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:3000/api/auth/refresh-token",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "api",
+                "auth",
+                "refresh-token"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Phần B - Role-based access",
+      "item": [
+        {
+          "name": "validate-entry",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2OWIyNmM0YmU2YjhhODg5YzQyMTE4OGMiLCJyb2xlIjoicGFzc2VuZ2VyIiwiaWF0IjoxNzczMzIzMTEyLCJleHAiOjE3NzMzMjQwMTJ9.N--3hfZnKMWyPyP6bgUPH6XkZ_SZARtA44RjxBhEOwM",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"stationCode\": \"ST01\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:3000/api/metro/tickets/VE123/validate-entry",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "api",
+                "metro",
+                "tickets",
+                "VE123",
+                "validate-entry"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "manual-inspection",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2OWIyNmM0YmU2YjhhODg5YzQyMTE4OGMiLCJyb2xlIjoiIFN0YWZmIiwiaWF0IjoxNzczMzI1MzY4LCJleHAiOjE3NzMzMjYyNjh9.vAUZGlpulMdgXowaCiM7WgY95WJGO9AvhVlXx4kHLLE",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"reason\": \"QR Code bị mờ, không quét được\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:3000/api/metro/tickets/VE123/manual-inspection",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "api",
+                "metro",
+                "tickets",
+                "VE123",
+                "manual-inspection"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Phần C - Quản trị người dùng",
+      "item": [
+        {
+          "name": "users",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2OWIyNmM0YmU2YjhhODg5YzQyMTE4OGMiLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE3NzMzMjYwMTMsImV4cCI6MTc3MzMyNjkxM30.YRanXvEBh4X3FGbRgZTD8M75tz1lCBGwquLvhgdj8xs",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:3000/api/users",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "api",
+                "users"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "role",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2OWIyNmM0YmU2YjhhODg5YzQyMTE4OGMiLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE3NzMzMjYwMTMsImV4cCI6MTc3MzMyNjkxM30.YRanXvEBh4X3FGbRgZTD8M75tz1lCBGwquLvhgdj8xs",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "PATCH",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"role\": \"staff\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:3000/api/users/69b2cb0873eca529fccc0c43/role",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "api",
+                "users",
+                "69b2cb0873eca529fccc0c43",
+                "role"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "metro-ticket-management",
+      "item": [
+        {
+          "name": "reports",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2OWIyNmM0YmU2YjhhODg5YzQyMTE4OGMiLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE3NzMzNjkyODAsImV4cCI6MTc3MzM3Mjg4MH0.P3VWgBTglm49qDVM-weWvXpLxh_w0bYWpku8Ucx__Nk",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Idempotency-Key",
+                "value": "may-report-001",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"title\": \"Báo cáo tháng 5\",\r\n    \"type\": \"monthly\",\r\n    \"fromDate\": \"2026-05-01\",\r\n    \"toDate\": \"2026-05-31\"\r\n}\r\n",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:3000/api/reports",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "api",
+                "reports"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "New Request",
+          "request": {
+            "method": "GET",
+            "header": []
+          },
+          "response": []
+        }
+      ]
+    }
+  ]
+}
