@@ -1,53 +1,97 @@
-# Metro Ticket Management System
+🚇 Metro Ticket Management System
 
-A full-stack web application for managing metro train tickets, built with **React 19** (frontend) and **Node.js/Express** (backend). The system supports role-based access control with four user roles: Passenger, Staff, Inspector, and Admin.
+Hệ thống web full-stack cho phép quản lý vé tàu metro, hỗ trợ mua vé, kiểm tra vé và quản lý vận hành hệ thống.  
+Ứng dụng được thiết kế với mục tiêu mang lại trải nghiệm **nhanh chóng – chính xác – realtime**.
 
-## Tech Stack
+---
 
-**Frontend**
-- React 19, Vite 5
-- React Router 7
-- Tailwind CSS 3
-- Axios, Socket.io-client
+📌 Tổng Quan Dự Án
 
-**Backend**
-- Node.js, Express.js
-- MongoDB, Mongoose
-- Socket.io (Realtime)
+Dự án mô phỏng hệ thống bán vé và kiểm soát vé metro trong thực tế, bao gồm các chức năng từ mua vé, xác thực vé đến quản lý hệ thống.
+
+Hệ thống hỗ trợ đa vai trò:
+- 👤 Passenger (Hành khách)
+- 🧑‍💼 Staff (Nhân viên)
+- 🕵️ Inspector (Thanh tra)
+- 🛠 Admin (Quản trị)
+
+---
+
+💼 Vai Trò Phân Tích Nghiệp Vụ (Business Analyst - BA)
+
+🔹 Phân tích & thiết kế luồng hệ thống
+- Xây dựng hệ thống phân quyền đa vai trò
+- Thiết kế luồng **mua vé → thanh toán → tạo QR code**
+- Xây dựng quy trình **kiểm tra vé tại cổng (validate ticket)**
+
+🔹 Quản lý vé & giao dịch
+- Thiết kế logic xử lý trạng thái vé:
+  - VALID / EXPIRED / DENIED
+- Xây dựng hệ thống quản lý lịch sử giao dịch
+- Thiết kế cơ chế nạp tiền tài khoản
+
+🔹 Hệ thống kiểm tra & giám sát
+- Đặc tả nghiệp vụ kiểm tra vé của Staff & Inspector
+- Xây dựng luồng xử lý vi phạm (violation report)
+- Thiết kế dashboard theo dõi hoạt động hệ thống
+
+🔹 Realtime & hệ thống thông minh
+- Đề xuất tích hợp **Socket.io** cho cập nhật realtime
+- Thiết kế luồng notification & dashboard live
+
+🔹 Tài liệu & đảm bảo chất lượng
+- Viết User Stories & Acceptance Criteria
+- Phối hợp Frontend & Backend đảm bảo đúng nghiệp vụ
+
+---
+
+🎨 Vai Trò Phát Triển Giao Diện (Frontend Developer)
+
+🔹 Thiết kế UI/UX
+- Xây dựng giao diện hiện đại, dễ sử dụng
+- Responsive trên Desktop / Tablet / Mobile
+- Tối ưu trải nghiệm người dùng (UX)
+
+🔹 Phát triển dashboard
+- Admin Dashboard: quản lý hệ thống & báo cáo
+- Staff Interface: kiểm tra vé nhanh chóng
+- Passenger UI: mua vé & xem lịch sử
+
+🔹 Xử lý logic phía client
+- Gọi API với Axios
+- Quản lý route (React Router)
+- Hiển thị trạng thái vé realtime
+
+🔹 Realtime UI
+- Hiển thị dữ liệu live với Socket.io
+- Notification & cập nhật dashboard ngay lập tức
+
+---
+
+ 🛠 Công Nghệ Sử Dụng
+
+🎨 Frontend
+- React (Vite)
+- React Router
+- Tailwind CSS
+- Axios
+- Socket.io Client
+
+⚙️ Backend
+- Node.js
+- Express.js
+- MongoDB (Mongoose)
 - JWT Authentication
+- Socket.io
 
-## Features
+---
 
-- **Authentication** — Register, login, JWT access/refresh token, protected routes
-- **Passenger** — Purchase tickets, top-up balance, view transaction history, QR code tickets
-- **Staff** — Validate tickets at gates (ALLOW / DENY / EXPIRED), view validation history, report incidents
-- **Inspector** — Manual ticket inspection, create violation reports, inspection statistics
-- **Admin** — Manage users/stations/routes, revenue reports & analytics, system settings
-- **Realtime** — Socket.io integration for live dashboard updates and notifications
+✨ Tính Năng Chính
 
-## Getting Started
-
-```bash
-# Install backend dependencies
-cd backend && npm install
-
-# Install frontend dependencies
-cd frontend && npm install
-
-# Run backend (http://localhost:3000)
-cd backend && npm run dev
-
-# Run frontend (http://localhost:5173)
-cd frontend && npm run dev
-```
-
-> Copy `backend/.env.example` to `backend/.env` and configure your MongoDB connection string before running.
-
-## Demo Accounts
-
-| Role      | Email                    | Password       |
-|-----------|--------------------------|----------------|
-| Admin     | admin@metro.com          | admin123       |
-| Staff     | staff@metro.com          | staff123       |
-| Inspector | inspector@metro.com      | inspector123   |
-| Passenger | passenger@metro.com      | passenger123   |
+- 🔐 Xác thực người dùng (JWT)
+- 🎫 Mua vé & tạo QR code
+- 💳 Nạp tiền & lịch sử giao dịch
+- 🚧 Kiểm tra vé tại cổng (Staff)
+- 🕵️ Kiểm tra vé thủ công (Inspector)
+- 📊 Dashboard & báo cáo (Admin)
+- ⚡ Cập nhật realtime
